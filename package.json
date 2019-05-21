@@ -1,0 +1,19 @@
+{
+  "name": "event",
+  "version": "1.0.0",
+  "description": "crud api for events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at1208/Events-ExpressJS.git"
+  },
+  "author": "Aman Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/at1208/Events-ExpressJS/issues"
+  },
+  "homepage": "https://github.com/at1208/Events-ExpressJS#readme"
+}
