@@ -5,8 +5,8 @@ const Event = require('./routers/events');
  const app = express();
 
 
-app.use(express.json()); // it is used to parse the body request by the client
-app.get(express.urlencoded({ extended: true }));//it is used to take req in the header by the client
+app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser.
+app.get(express.urlencoded({ extended: true }));// It parses incoming requests with urlencoded payloads and is based on body-parser.
 
 app.use('/', Event);
 
