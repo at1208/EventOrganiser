@@ -1,16 +1,19 @@
 
 const express = require('express');
-const Event = require('./routers/events');
+bodyParser = require('body-parser');
+var cors = require('cors')
+const app = express();
+app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+const mongoose = require('mongoose');
+require('./Models/eventModel');
+require('./Routes/eventRoute')(app)
+const URI = require('./config/db')
 
- const app = express();
+mongoose.connect(URI.database, { useUnifiedTopology: true })
+.then(() => console.log(`Connected to Database`))
+.catch( err => console.log(err));
 
-
-app.use(express.json()); //It parses incoming requests with JSON payloads and is based on body-parser.
-app.get(express.urlencoded({ extended: true }));// It parses incoming requests with urlencoded payloads and is based on body-parser.
-
-app.use('/', Event);
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+const Port = process.env.PORT || 4000;
+app.listen(Port, () =>  console.log(`Server started on ${Port}`));
