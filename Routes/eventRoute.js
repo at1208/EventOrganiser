@@ -28,7 +28,7 @@ res.send(allEvents)
 })
 
 app.put('/updateEvent/:_id', async (req,res) => {
-  const updatedEvent = await event.findByIdAndUpdate(req.body._id, {
+  const updatedEvent = await event.findByIdAndUpdate(req.params._id, {
     eventName: req.body.eventName,
     venue: req.body.venue,
     imageURL: req.body.imageURL,
